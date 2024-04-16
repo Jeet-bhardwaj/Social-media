@@ -22,6 +22,7 @@ const app = () => {
                     {sidebarItem === 'Setting' && console.log('Setting is not working yet')}
                     {sidebarItem === 'About' &&  <About/>}
                     {/* ADD MORE SIDE BAR ITEMS CONDITION */}
+                    {/* ADD MORE SIDE BAR ITEMS CONDITION */}
                     <Footer></Footer>
                 </div>
             </div>

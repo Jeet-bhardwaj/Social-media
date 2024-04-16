@@ -1,17 +1,20 @@
 import { createContext, useReducer } from "react";
 
+
+
+
 export const PostList = createContext({          /*its give structure of Context Provider*/
     postList: [],                         /* That's helps to get auto suggation  */
-    addPost: () => {},                      /* It is also called API desining and Contract Desining */
+    addPost: () => { },                      /* It is also called API desining and Contract Desining */
     deletePost: () => { },
 });
 
 
-const postListReducer = (currPostList, action) => { 
-    let newPostList = currPostList   
+const postListReducer = (currPostList, action) => {
+    let newPostList = currPostList
     console.log(post => post.id)                            /* useReducer( Function() , Inital_post)  */
-    if(action.type === 'DELETE_POST' ){
-        newPostList = currPostList.filter(post => post.id !== action.payload.postsId );
+    if (action.type === 'DELETE_POST') {
+        newPostList = currPostList.filter(post => post.id !== action.payload.postsId);
     }
     return newPostList;
 };
@@ -19,18 +22,18 @@ const postListReducer = (currPostList, action) => {
 
 const PostListProvider = ({ children }) => {
     const [postList, dispatchPostList] = useReducer(postListReducer, Default_Post_list_1);
-    const addPost = () => { };
+    const addPost = (userId,title,body,reaction,tags) => { 
+        
+        console.log(userId,title,body,reaction,tags);
+    };
 
-    const deletePost = (postsId) => { 
+    const deletePost = (postsId) => {
         dispatchPostList({
-            type:"DELETE_POST",
-            payload:{postsId,},
+            type: "DELETE_POST",
+            payload: { postsId, },
         });
 
-     };
-
-
-
+    };
 
     return <PostList.Provider value={{ postList, addPost, deletePost }} >
         {children}
@@ -46,7 +49,7 @@ const Default_Post_list_1 = [
         userId: '1234567',
         tags: ['vacation', 'mumbai', 'Enjoying']
     },
-         
+
 
     {
         id: '2',

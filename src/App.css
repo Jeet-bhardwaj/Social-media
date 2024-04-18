@@ -1,5 +1,6 @@
 /*06-04-2024*/
 .main-contenar{/*App.jsx L-15*/
+    /* background-image: url(./img.jpeg) ; */
     display: flex;
 }
 .contenar{/*App.jsx  L-17*/
